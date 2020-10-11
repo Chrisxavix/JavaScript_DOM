@@ -1,12 +1,14 @@
 /* ------------------ JAVASCRIPT - DOM ----------------- */
 /* 
-1) Introducción, line 
-2) Nodos, Elementos y Selectores, line 
-3) Atributos y Data-Attributes, line
-4) Estilos y Variables CSS 
-5) Clases CSS 
-6) Texto y HTML
-7) Recorriendo el DOM
+1) Introducción, line 14
+2) Nodos, Elementos y Selectores, line 27
+3) Atributos y Data-Attributes, line 46
+4) Estilos y Variables CSS, line 87
+5) Clases CSS, line 102
+6) Texto y HTML, line 111
+7) Recorriendo el DOM, line 121
+8) Creando Elementos y Fragmentos, line 144
+9) Templates HTML, line 212
 */
 
 /* 1) --------------- Introducción ------------------- */
@@ -138,3 +140,112 @@ console.log($cards.nextElementSibling);
 // Métodos cercanos
 console.log($cards.children[3].closest("section")); */
 /* 7) ------------ Recorriendo el DOM ----------------- */
+
+/* 8) ------- Creando Elementos y Fragmentos ---------- */
+/* Crear un tarjeta nueva. */
+/* OPCION 1
+const $figure = document.createElement("figure");
+const $img = document.createElement("img");
+const $figcaption = document.createElement("figcaption");
+const $figcaptionText = document.createTextNode("Animals");
+const $cards = document.querySelector(".cards");
+
+$img.setAttribute("src","https://placeimg.com/200/200/animals");
+$img.setAttribute("alt", "Animals");
+// Agrega la clase card del CSS
+$figure.classList.add("card");
+$figcaption.appendChild($img);
+$figcaption.appendChild($figcaptionText);
+$figure.appendChild($img);
+$figure.appendChild($figcaption);
+$cards.appendChild($figure); */
+
+/* OPCION 2
+const $figure2 = document.createElement("figure");
+const $cards = document.querySelector(".cards");
+
+$figure2.innerHTML = "<img src='https://placeimg.com/200/200/animals' alt='Animals'>" + 
+"<figcaption>Animals</figcaption>";  
+$figure2.classList.add("card");
+$cards.appendChild($figure2); */
+
+/* const estaciones = ["Primavera", "Otoño", "Invierno", "Verano"];
+const $ul = document.createElement("ul");
+
+document.write("<h2> Estaciones del Año </h2>");
+document.body.appendChild($ul);
+estaciones.forEach(elemnt => {
+    const $li = document.createElement('li');
+    $li.textContent = elemnt;
+    $ul.appendChild($li)
+}) */
+
+/* Fragmento: El recomendado a hacer  */
+/* const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+];
+const $ul = document.createElement("ul");
+const $fragment = document.createDocumentFragment();
+
+meses.forEach(elemnt => {
+    const $li = document.createElement("li");
+    $li.textContent = elemnt;
+    $fragment.appendChild($li);
+})
+
+document.write("<h2> Meses del Año </h2>");
+$ul.appendChild($fragment);
+document.body.appendChild($ul); */
+/* 8) ------- Creando Elementos y Fragmentos ---------- */
+
+/* 9) ------------- Templates HTML -------------------- */
+/* const $card = document.querySelector(".cards");
+// con content entra al contenido
+const $template = document.getElementById("template-card").content;
+const $fragment = document.createDocumentFragment();
+
+const cardContent = [
+    {
+        title: "Tecnología",
+        img:"https://placeimg.com/200/200/tech"
+    },
+    {
+        title: "Animales",
+        img:"https://placeimg.com/200/200/animals"
+    },
+    {
+        title: "Arquitectura",
+        img:"https://placeimg.com/200/200/arch"
+    },
+    {
+        title: "Gente",
+        img:"https://placeimg.com/200/200/people"
+    },
+    {
+        title: "Naturaleza",
+        img:"https://placeimg.com/200/200/nature"
+    }
+];
+cardContent.forEach(elemnt => {
+    $template.querySelector("img").setAttribute("src", elemnt.img);
+    $template.querySelector("img").setAttribute("alt", elemnt.tittle);
+    $template.querySelector("figcaption").textContent = elemnt.title;
+    
+    // Clonación
+    let $clone = document.importNode($template, true);
+    $fragment.appendChild($clone);
+})
+
+$card.appendChild($fragment); */
+/* 9) ------------- Templates HTML -------------------- */
