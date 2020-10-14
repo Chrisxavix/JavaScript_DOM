@@ -2,7 +2,7 @@
 /* 
 1) Eventos, line 
 2) Eventos con Parámetros y Remover Eventos, line 
-3) 
+3) Flujo de Eventos (Burbuja y Captura)
 4)  
 5) 
 6) 
@@ -84,4 +84,27 @@ $eventoremover.addEventListener("dblclick", remover);
 // Con función declarada
 // $eventoremover.addEventListener("dblclick", remover2); */
 /* 2) ---- Eventos con Parámetros y Remover Eventos ---- */
+
+/* 3) ------ Flujo de Eventos (Burbuja y Captura) ------ */
+/* const $diveventos = document.querySelectorAll(".eventos-flujo div");
+function flujoeventos(e) {
+    console.log(`hola, te saluda ${this.className}, el click fue de ${e.target.className}`);
+}
+$diveventos.forEach(div => {
+    // Burbuja, sin el tercer parámetro o agregar false
+    // De adentro hacia afuera
+    // ASÍ: div.addEventListener("click", flujoeventos, false);
+    // div.addEventListener("click", flujoeventos, false);
+    
+    // Captura, agregando true
+    // De afuera hacia adentro
+    // ASÍ: div.addEventListener("click", flujoeventos, true);
+    // div.addEventListener("click", flujoeventos, true);
+
+    // Que se ejecute una sola vez
+    div.addEventListener("click", flujoeventos, {
+        once: true
+    });
+}) */
+/* 3) ------ Flujo de Eventos (Burbuja y Captura) ------ */
 

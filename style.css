@@ -34,3 +34,21 @@
     border: thin solid var(--dark-color);
     padding: 1rem;
 }
+
+.eventos-flujo div {
+    padding: 4rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.uno {
+    background-color: #F7DF1E;
+}
+
+.dos {
+    background-color: #1ea0f7;
+}
+
+.tres {
+    background-color: #1a241a;
+}
