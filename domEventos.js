@@ -1,14 +1,11 @@
 /* ------------------ JAVASCRIPT - DOM ----------------- */
 /* 
-1) Eventos, line 
-2) Eventos con Parámetros y Remover Eventos, line 
-3) Flujo de Eventos (Burbuja y Captura)
-4)  
-5) 
-6) 
-7) 
-8) 
-9) 
+1) Eventos, line 11
+2) Eventos con Parámetros y Remover Eventos, line 51
+3) Flujo de Eventos (Burbuja y Captura) line 85
+4) Delegación de Eventos 108
+5) BOM: Métodos line 127
+6) URL, Historial y Navegador line 143
 */
 
 /* 1) --------------------- Eventos -------------------- */
@@ -108,3 +105,61 @@ $diveventos.forEach(div => {
 }) */
 /* 3) ------ Flujo de Eventos (Burbuja y Captura) ------ */
 
+/* 4) ------------ Delegación de Eventos  ------------- */
+/* function flujoeventos(e) {
+    console.log(`hola, te saluda ${this}, el click fue de ${e.target.className}`);
+}
+
+document.addEventListener("click", (e) => {
+    // matches busca un selector válido
+
+    if (e.target.matches(".eventos-flujo div")) {
+        flujoeventos(e);
+    }
+    
+    if (e.target.matches(".eventos-flujo a")) {
+        alert('holi')
+        e.preventDefault();
+    }
+}); */
+/* 4) ------------ Delegación de Eventos  ------------- */
+
+/* 5) ---------------- BOM: Métodos ------------------- */
+/* const $abrir = document.getElementById("abrir-ventana");
+const $cerrar = document.getElementById("cerrar-ventana");
+const $imprimir = document.getElementById("imprimir-ventana");
+let windo;
+$abrir.addEventListener("click", (e) => {
+    windo = window.open("https://www.twitch.tv/duxativa");
+});
+$cerrar.addEventListener("click", (e) => {
+    windo.close();
+});
+$imprimir.addEventListener("click", (e) => {
+    print();
+}); */
+/* 5) ---------------- BOM: Métodos ------------------- */
+
+/* 6) ---------- URL, Historial y Navegador ----------- */
+/* URL */
+/* console.log(location);
+console.log(location.origin);
+console.log(location.protocol);
+console.log(location.host);
+console.log(location.hostname);
+console.log(location.port);
+console.log(location.href);
+console.log(location.hash);
+console.log(location.search);
+console.log(location.pathname); */
+
+/* History */
+/* console.log(history);
+console.log(history.length);
+console.log(history.forward(1));
+console.log(history.go(2));
+console.log(history.back(1)); */
+
+/* Navegador */
+/* console.log(navigator); */
+/* 6) ---------- URL, Historial y Navegador ----------- */
