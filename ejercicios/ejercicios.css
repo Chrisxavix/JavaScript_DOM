@@ -1,0 +1,175 @@
+/* -------------RESET CSS----------- */
+:root {
+	--main-font: sans-serif;
+    --font-size: '16px';
+    --main-color: #f9ed69;
+    --second-color: #f08a5d;
+    --third-color: #b83b5e;
+	--fourth-color: #6a2c70;
+    --main-modal-color: rgba(249, 237, 105, 0.75);
+    --second-modal-color: rgba(240, 137, 93, 0.75);
+    --container-width: 1200px;
+    /* --black-color: #222;
+	--black-modal-color: rgba(34, 34, 34, 0.75); */
+	
+}
+html {
+	box-sizing: border-box;
+	font-family: var(--main-font);
+    font-size: var(--font-size);
+    /* navegación */
+	scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    /* Quita los bordes en horizontal */
+    overflow-x: hidden;
+}
+
+
+
+
+/* HEADERR */
+.header {
+	position: sticky;
+	top: 0;
+	padding: 1rem;
+	background-color: var(--main-color);
+	text-align: center;
+}
+.header__title {
+	margin: 0;
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+	color: var(--black-color);
+	cursor: default;
+	font-weight: bold;
+}
+/* HEADER-UNDERLINE OF TITLE */
+.title-sub {
+	position: relative;
+}
+
+/* SECTION */
+.section {
+	min-height: 100vh;
+	text-align: center;
+	padding: 2rem;
+	padding-top: 4rem;
+}
+
+.section:nth-child(1) {
+	background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+.section:nth-child(2) {
+	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+.section:nth-child(3) {
+	background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+.section:nth-child(4) {
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.section:nth-child(5) {
+	background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+}
+/* MENU-BTN HAMBURGER LIBRARY */
+.panel-btn {
+	position: fixed;
+	z-index: 200;
+	bottom: 1vh;
+	right: 1vw;
+	background-color: var(--main-color);
+	border-radius: 50%;
+	/* no estaba muy centrado */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 4rem;
+	height: 4rem;
+	padding: 0.9375rem 17px 15px 13px;
+	outline: none;
+}
+/* PANEL->CONTAINER OF THE MENU THAT CAN WE SEE WITH THE .panel-btn */
+.panel {
+	background-color: var(--second-color);
+	position: fixed;
+	/* para que tape toda la pantalla */
+	width: 100%;
+	top: 0%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	transition: transform 0.3s ease;
+	transform: translate(-100%, 0);
+}
+.panel.active {
+	transform: translate(0, 0);
+}
+.menu {
+	width: 100%;
+	text-align: center;
+	padding-left: 0;
+	margin: 0;
+}
+.menu__item {
+	list-style: none;
+	width: 100%;
+}
+.menu__a {
+	padding: 2rem;
+	display: block;
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: var(--black-color);
+	transition: all 0.1s ease-in-out;
+}
+
+/* my cellphone */
+@media screen and (min-width: 900px) {
+	.header__title:hover {
+		color: var(--black-modal-color);
+	}
+	.title-sub::before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 3px;
+		background-color: #fff;
+		bottom: 0;
+		position: absolute;
+		transition: all 0.3s;
+	}
+	.title-sub:hover::before {
+		width: 100%;
+		left: 0;
+	}
+	.title-sub::before {
+		left: 50%;
+	}
+	.menu__a:hover {
+		font-weight: bold;
+		color: var(--main-color);
+		background-color: var(--third-color);
+	}
+}
+@media screen and (max-width: 965px) {
+	.header__title {
+		width: 30%;
+	}
+}
+@media screen and (max-width: 435px) {
+	.header__title {
+		width: 50%;
+	}
+}
