@@ -1,3 +1,5 @@
+<!-- https://uniwebsidad.com/libros/javascript/capitulo-6/modelo-basico-de-eventos-2 -->
+
 
 /* for (i=1;i<10;i++){ 
     document.write("<br><b>La tabla del " + i + ":</b><br>") 
