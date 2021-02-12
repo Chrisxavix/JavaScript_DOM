@@ -3,6 +3,10 @@
     --dark-color: #333;
 }
 
+body {
+    background-color: rgb(44, 46, 45);
+}
+
 .card{
     display: inline-block;
     background-color: var(--dark-color);
