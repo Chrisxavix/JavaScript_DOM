@@ -169,8 +169,8 @@ console.log($cards.children[3].closest("section")); */
 
 /* 8) ------- Creando Elementos y Fragmentos ---------- */
 /* Crear un tarjeta nueva. */
-/* OPCION 1
-const $figure = document.createElement("figure");
+/* OPCION 1 */
+/* const $figure = document.createElement("figure");
 const $img = document.createElement("img");
 const $figcaption = document.createElement("figcaption");
 const $figcaptionText = document.createTextNode("Animals");
@@ -186,8 +186,8 @@ $figure.appendChild($img);
 $figure.appendChild($figcaption);
 $cards.appendChild($figure); */
 
-/* OPCION 2
-const $figure2 = document.createElement("figure");
+/* OPCION 2, recomendado */
+/* const $figure2 = document.createElement("figure");
 const $cards = document.querySelector(".cards");
 
 $figure2.innerHTML = "<img src='https://placeimg.com/200/200/animals' alt='Animals'>" + 
