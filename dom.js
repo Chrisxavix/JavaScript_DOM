@@ -137,10 +137,11 @@ $card.forEach(elem => {
 /* Reemplazar el texto que tiene el html con (innerHTML) */
 /* const $whatisDOM = document.getElementById("que-es");
 let text = "<p> EL Dom es <br> parte de la Interfaz.</p>" +
-"<p>El diseño va en css.</p>";
-// $whatisDOM.innerHTML = text;
-// Elimina el menú de p, y cada parrafo toma posición
-$whatisDOM.outerHTML = text; */
+"<p>El diseño va en css.</p>"; */
+// $whatisDOM.innerText = text; //Agrega el texto tal cual lo escribimos, como notaciones html
+// $whatisDOM.innerHTML = text; // Agrega el texto respetando etiquetas de html
+// $whatisDOM.textContent = text; // Agrega el texto en linea seguida, no respeta etiquetas html
+// $whatisDOM.outerHTML = text; // Elimina el menú de p, y cada parrafo toma posición, mejora la semántica
 /* 6) --------------- Texto y HTML -------------------- */
 
 /* 7) ------------ Recorriendo el DOM ----------------- */
