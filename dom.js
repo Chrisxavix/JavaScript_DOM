@@ -44,16 +44,22 @@ console.log(document.querySelectorAll(".card")[2]);*/
 /* 2) ------ Nodos, Elementos y Selectores  ---------- */
 
 /* 3) ------- Atributos y Data-Attributes  ----------- */
+/* Cambia en el template los valores */
 /* document.documentElement.lang = 'en';
 console.log(document.documentElement.lang, 'a ver');
-document.documentElement.setAttribute('lang', 'es-EC');
+/* o usando setAttribute */
+/* document.documentElement.setAttribute('lang', 'es-EC');
 console.log(document.documentElement.lang, 'a ver2'); */
+
+/* Traer el atributo tal cual se marcó en el html */
+/* console.log(document.querySelector(".link-dom").getAttribute("href")); */
 
 /* Agrega un atributo a la clase que tiene el nombre 
 .link-dom, es decir, hace que abra en una nueva pestaña */
 /* const $linkDom = document.querySelector('.link-dom');
-$linkDom.setAttribute("target", "blank"); */
-
+$linkDom.setAttribute("target", "_blank");
+$linkDom.setAttribute("id", "test");
+ */
 /* Aquí cambiar el valor de (href) por un nuevo enlace */
 /* const $linkDom = document.querySelector('.link-dom');
 $linkDom.setAttribute("target", "blank");
@@ -64,7 +70,7 @@ $linkDom.setAttribute("href", "https://www.youtube.com"); */
 $linkDom.setAttribute("target", "blank");
 $linkDom.setAttribute("rel", "noopener");
 $linkDom.setAttribute("href", "https://www.youtube.com");
-// hasAttribute: comprueba que exista el atributo
+// hasAttribute: comprueba que exista el atributo, tiene que dar true en la consola
 console.log($linkDom.hasAttribute("rel"));
 $linkDom.removeAttribute("rel");
 console.log($linkDom.hasAttribute("rel")); */
@@ -85,6 +91,19 @@ console.log($linkDom.dataset.id); */
 /* 3) ------- Atributos y Data-Attributes  ----------- */
 
 /* 4) --------- Estilos y Variables CSS   ------------ */
+/* const $linkDom = document.querySelector('.link-dom');
+console.log($linkDom.style); */
+
+/* Poner estilos a un atributo */
+/* $linkDom.style.setProperty("font-size", "4rem") */
+/* o con */
+/* $linkDom.style.textDecoration = "none"; */
+
+/* Cambiar el fondo al body */
+/* const $body = document.querySelector("#body")
+$body.setAttribute("style", "background-color: blue;"); */
+/* Cambiar el fondo al body */
+
 /* const $html = document.documentElement;
 const $body = document.body;
 //Acceder a las variables
@@ -106,6 +125,12 @@ $card.classList.add("opacity-80", "sepia");
 $card.classList.replace("rotate-45", "rotate-135");
 $card.classList.remove("opacity-80", "sepia");
 $card.classList.toggle("opacity-80", "sepia"); */
+
+/* Para agregar el efecto a todos se hace con un ForEach */
+/* const $card = document.querySelectorAll(".card");
+$card.forEach(elem => {
+    elem.classList.add("rotate-45");
+}) */
 /* 5) ---------------- Clases CSS -------------------- */
 
 /* 6) --------------- Texto y HTML -------------------- */
