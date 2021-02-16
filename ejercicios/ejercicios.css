@@ -3,21 +3,21 @@
 	--main-font: sans-serif;
     --font-size: '16px';
     --main-color: #f9ed69;
-    --second-color: #f08a5d;
+    --second-color: #222;
     --third-color: #b83b5e;
 	--fourth-color: #6a2c70;
     --main-modal-color: rgba(249, 237, 105, 0.75);
-    --second-modal-color: rgba(240, 137, 93, 0.75);
+    --second-modal-color: rgba(34, 34, 34, 0.75);
     --container-width: 1200px;
-    /* --black-color: #222;
-	--black-modal-color: rgba(34, 34, 34, 0.75); */
+    --black-color: #222;
+	--black-modal-color: rgba(34, 34, 34, 0.75);
 	
 }
 html {
 	box-sizing: border-box;
 	font-family: var(--main-font);
     font-size: var(--font-size);
-    /* navegación */
+    /* navegación, le da un efecto cuando se presiona desde el enlace */
 	scroll-behavior: smooth;
 }
 
@@ -33,37 +33,37 @@ body {
     overflow-x: hidden;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
 
+/* -------------RESET CSS----------- */
 
-
-/* HEADERR */
+/* -------------HEADER----------- */
 .header {
 	position: sticky;
 	top: 0;
 	padding: 1rem;
 	background-color: var(--main-color);
-	text-align: center;
-}
-.header__title {
-	margin: 0;
-	width: 20%;
-	margin-left: auto;
-	margin-right: auto;
-	color: var(--black-color);
-	cursor: default;
-	font-weight: bold;
-}
-/* HEADER-UNDERLINE OF TITLE */
-.title-sub {
-	position: relative;
 }
 
-/* SECTION */
-.section {
-	min-height: 100vh;
+.header h1 {
+	margin: 0;
 	text-align: center;
+}
+/* -------------HEADER----------- */
+
+/* -------------SECTION----------- */
+.section {
 	padding: 2rem;
 	padding-top: 4rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: var(--container-width);
+	min-height: 100vh;
+	text-align: center;
 }
 
 .section:nth-child(1) {
@@ -81,95 +81,109 @@ body {
 .section:nth-child(5) {
 	background-image: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
 }
-/* MENU-BTN HAMBURGER LIBRARY */
-.panel-btn {
+/* -------------SECTION----------- */
+
+/* -------------PANEL----------- */
+/* Que el menú salga de arriba (x, y) 
+Opciones: 
+Desde arriba: transform: translate(0, -100%);
+Desde abajo: transform: translate(0, 100%);
+Desde izquierda: transform: translate(-100%, 0);
+Desde derecha: transform: translate(100, 0); */
+/* .panel {
 	position: fixed;
-	z-index: 200;
-	bottom: 1vh;
-	right: 1vw;
-	background-color: var(--main-color);
-	border-radius: 50%;
-	/* no estaba muy centrado */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 4rem;
-	height: 4rem;
-	padding: 0.9375rem 17px 15px 13px;
-	outline: none;
-}
-/* PANEL->CONTAINER OF THE MENU THAT CAN WE SEE WITH THE .panel-btn */
-.panel {
-	background-color: var(--second-color);
-	position: fixed;
-	/* para que tape toda la pantalla */
+	z-index: 800;
+	background-color: var(--second-modal-color);
 	width: 100%;
-	top: 0%;
+	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	display: flex;
-	align-items: center;
+	transform: translate(0, -100%);
 	transition: transform 0.3s ease;
-	transform: translate(-100%, 0);
+} 
+
+.is-active{
+	transform: translate(0, 0);
+} */
+
+/* Con Opacidad aparece de frente */
+/* .panel {
+	position: fixed;
+	z-index: 800;
+	background-color: var(--second-modal-color);
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transition: transform 0.3s ease, opacity 0.5s ease;
 }
-.panel.active {
+
+.is-active{
+	opacity: 1;
+} */
+
+/* Las dos a la vez */
+.panel {
+	position: fixed;
+	z-index: 800;
+	background-color: var(--second-modal-color);
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transform: translate(0, -100%);
+	transition: transform 0.4s ease, opacity 1.3s ease;
+} 
+
+.is-active{
+	opacity: 1;
 	transform: translate(0, 0);
 }
+/* Las dos a la vez */
 .menu {
-	width: 100%;
+	width: inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
 	text-align: center;
-	padding-left: 0;
-	margin: 0;
 }
-.menu__item {
-	list-style: none;
-	width: 100%;
-}
-.menu__a {
+
+.menu a {
 	padding: 2rem;
+	width: inherit;
 	display: block;
 	font-size: 1.5rem;
 	text-decoration: none;
-	color: var(--black-color);
-	transition: all 0.1s ease-in-out;
+	color: var(--main-color);
+	transition: all 0.3s ease;
 }
 
-/* my cellphone */
-@media screen and (min-width: 900px) {
-	.header__title:hover {
-		color: var(--black-modal-color);
-	}
-	.title-sub::before {
-		content: '';
-		display: block;
-		width: 0;
-		height: 3px;
-		background-color: #fff;
-		bottom: 0;
-		position: absolute;
-		transition: all 0.3s;
-	}
-	.title-sub:hover::before {
-		width: 100%;
-		left: 0;
-	}
-	.title-sub::before {
-		left: 50%;
-	}
-	.menu__a:hover {
-		font-weight: bold;
-		color: var(--main-color);
-		background-color: var(--third-color);
-	}
+.menu a:hover {
+	font-weight: bold;
+	color: var(--second-color);
+	background-color: var(--main-modal-color);
 }
-@media screen and (max-width: 965px) {
-	.header__title {
-		width: 30%;
-	}
+/* -------------PANEL----------- */
+
+/* -------------PANEL-BTN----------- */
+.panel-btn {
+	background-color: var(--main-color) !important;
+	bottom: 1vh;
+	right: 1vw;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	position: fixed;
+	z-index: 900;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-@media screen and (max-width: 435px) {
-	.header__title {
-		width: 50%;
-	}
-}
+/* -------------PANEL-BTN----------- */
