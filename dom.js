@@ -275,3 +275,49 @@ cardContent.forEach(elemnt => {
 
 $card.appendChild($fragment); */
 /* 9) ------------- Templates HTML -------------------- */
+
+/* 10) ------------- Insertar elementos -------------------- */
+/* Agregar un span a un título */
+/* const $title = document.getElementById("title")
+$title.innerHTML = "DOM - <span>Crear e insertar elementos.</span>" */
+
+/* Con este método se sobrecarga y consume mucho recursos */
+/* const $days = ["Lunes", "Martes", "Miercoles"];
+const $daysList = document.getElementById("daysList")
+const $daysSelect = document.getElementById("daysSelect");
+
+
+$days.forEach(element => {
+    $daysList.innerHTML += `<li>${element}</li>`
+    console.log(element);
+})
+
+$days.forEach(element => {
+    $daysSelect.innerHTML += `<option value="${element}">${element}</option>`
+    console.log(element);
+}) */
+
+/* Haciendo con fragmentos */
+/* const $days = ["Lunes", "Martes", "Miercoles"];
+const $daysList = document.getElementById("daysList")
+const $daysListArray = document.querySelectorAll("daysList")
+const $daysSelect = document.getElementById("daysSelect");
+const $fragment = document.createDocumentFragment();
+const $fragment2 = document.createDocumentFragment();
+
+$days.forEach(element => {
+    const $itemList = document.createElement('li')
+    $itemList.textContent = element;
+    $fragment.appendChild($itemList);
+})
+// Agregamos el fragmento
+$daysList.appendChild($fragment)
+
+$days.forEach(element => {
+    const $itemList2 = document.createElement('option')
+    $itemList2.textContent = element;
+    $fragment2.appendChild($itemList2);
+})
+// Agregamos el fragmento
+$daysSelect.appendChild($fragment2) */
+/* 10) ------------- Insertar elementos -------------------- */
