@@ -44,16 +44,22 @@ console.log(document.querySelectorAll(".card")[2]);*/
 /* 2) ------ Nodos, Elementos y Selectores  ---------- */
 
 /* 3) ------- Atributos y Data-Attributes  ----------- */
+/* Cambia en el template los valores */
 /* document.documentElement.lang = 'en';
 console.log(document.documentElement.lang, 'a ver');
-document.documentElement.setAttribute('lang', 'es-EC');
+/* o usando setAttribute */
+/* document.documentElement.setAttribute('lang', 'es-EC');
 console.log(document.documentElement.lang, 'a ver2'); */
+
+/* Traer el atributo tal cual se marcó en el html */
+/* console.log(document.querySelector(".link-dom").getAttribute("href")); */
 
 /* Agrega un atributo a la clase que tiene el nombre 
 .link-dom, es decir, hace que abra en una nueva pestaña */
 /* const $linkDom = document.querySelector('.link-dom');
-$linkDom.setAttribute("target", "blank"); */
-
+$linkDom.setAttribute("target", "_blank");
+$linkDom.setAttribute("id", "test");
+ */
 /* Aquí cambiar el valor de (href) por un nuevo enlace */
 /* const $linkDom = document.querySelector('.link-dom');
 $linkDom.setAttribute("target", "blank");
@@ -64,7 +70,7 @@ $linkDom.setAttribute("href", "https://www.youtube.com"); */
 $linkDom.setAttribute("target", "blank");
 $linkDom.setAttribute("rel", "noopener");
 $linkDom.setAttribute("href", "https://www.youtube.com");
-// hasAttribute: comprueba que exista el atributo
+// hasAttribute: comprueba que exista el atributo, tiene que dar true en la consola
 console.log($linkDom.hasAttribute("rel"));
 $linkDom.removeAttribute("rel");
 console.log($linkDom.hasAttribute("rel")); */
@@ -85,6 +91,19 @@ console.log($linkDom.dataset.id); */
 /* 3) ------- Atributos y Data-Attributes  ----------- */
 
 /* 4) --------- Estilos y Variables CSS   ------------ */
+/* const $linkDom = document.querySelector('.link-dom');
+console.log($linkDom.style); */
+
+/* Poner estilos a un atributo */
+/* $linkDom.style.setProperty("font-size", "4rem") */
+/* o con */
+/* $linkDom.style.textDecoration = "none"; */
+
+/* Cambiar el fondo al body */
+/* const $body = document.querySelector("#body")
+$body.setAttribute("style", "background-color: blue;"); */
+/* Cambiar el fondo al body */
+
 /* const $html = document.documentElement;
 const $body = document.body;
 //Acceder a las variables
@@ -106,16 +125,23 @@ $card.classList.add("opacity-80", "sepia");
 $card.classList.replace("rotate-45", "rotate-135");
 $card.classList.remove("opacity-80", "sepia");
 $card.classList.toggle("opacity-80", "sepia"); */
+
+/* Para agregar el efecto a todos se hace con un ForEach */
+/* const $card = document.querySelectorAll(".card");
+$card.forEach(elem => {
+    elem.classList.add("rotate-45");
+}) */
 /* 5) ---------------- Clases CSS -------------------- */
 
 /* 6) --------------- Texto y HTML -------------------- */
 /* Reemplazar el texto que tiene el html con (innerHTML) */
 /* const $whatisDOM = document.getElementById("que-es");
 let text = "<p> EL Dom es <br> parte de la Interfaz.</p>" +
-"<p>El diseño va en css.</p>";
-// $whatisDOM.innerHTML = text;
-// Elimina el menú de p, y cada parrafo toma posición
-$whatisDOM.outerHTML = text; */
+"<p>El diseño va en css.</p>"; */
+// $whatisDOM.innerText = text; //Agrega el texto tal cual lo escribimos, como notaciones html
+// $whatisDOM.innerHTML = text; // Agrega el texto respetando etiquetas de html
+// $whatisDOM.textContent = text; // Agrega el texto en linea seguida, no respeta etiquetas html
+// $whatisDOM.outerHTML = text; // Elimina el menú de p, y cada parrafo toma posición, mejora la semántica
 /* 6) --------------- Texto y HTML -------------------- */
 
 /* 7) ------------ Recorriendo el DOM ----------------- */
@@ -143,8 +169,8 @@ console.log($cards.children[3].closest("section")); */
 
 /* 8) ------- Creando Elementos y Fragmentos ---------- */
 /* Crear un tarjeta nueva. */
-/* OPCION 1
-const $figure = document.createElement("figure");
+/* OPCION 1 */
+/* const $figure = document.createElement("figure");
 const $img = document.createElement("img");
 const $figcaption = document.createElement("figcaption");
 const $figcaptionText = document.createTextNode("Animals");
@@ -160,8 +186,8 @@ $figure.appendChild($img);
 $figure.appendChild($figcaption);
 $cards.appendChild($figure); */
 
-/* OPCION 2
-const $figure2 = document.createElement("figure");
+/* OPCION 2, recomendado */
+/* const $figure2 = document.createElement("figure");
 const $cards = document.querySelector(".cards");
 
 $figure2.innerHTML = "<img src='https://placeimg.com/200/200/animals' alt='Animals'>" + 
@@ -249,3 +275,49 @@ cardContent.forEach(elemnt => {
 
 $card.appendChild($fragment); */
 /* 9) ------------- Templates HTML -------------------- */
+
+/* 10) ------------- Insertar elementos -------------------- */
+/* Agregar un span a un título */
+/* const $title = document.getElementById("title")
+$title.innerHTML = "DOM - <span>Crear e insertar elementos.</span>" */
+
+/* Con este método se sobrecarga y consume mucho recursos */
+/* const $days = ["Lunes", "Martes", "Miercoles"];
+const $daysList = document.getElementById("daysList")
+const $daysSelect = document.getElementById("daysSelect");
+
+
+$days.forEach(element => {
+    $daysList.innerHTML += `<li>${element}</li>`
+    console.log(element);
+})
+
+$days.forEach(element => {
+    $daysSelect.innerHTML += `<option value="${element}">${element}</option>`
+    console.log(element);
+}) */
+
+/* Haciendo con fragmentos */
+/* const $days = ["Lunes", "Martes", "Miercoles"];
+const $daysList = document.getElementById("daysList")
+const $daysListArray = document.querySelectorAll("daysList")
+const $daysSelect = document.getElementById("daysSelect");
+const $fragment = document.createDocumentFragment();
+const $fragment2 = document.createDocumentFragment();
+
+$days.forEach(element => {
+    const $itemList = document.createElement('li')
+    $itemList.textContent = element;
+    $fragment.appendChild($itemList);
+})
+// Agregamos el fragmento
+$daysList.appendChild($fragment)
+
+$days.forEach(element => {
+    const $itemList2 = document.createElement('option')
+    $itemList2.textContent = element;
+    $fragment2.appendChild($itemList2);
+})
+// Agregamos el fragmento
+$daysSelect.appendChild($fragment2) */
+/* 10) ------------- Insertar elementos -------------------- */

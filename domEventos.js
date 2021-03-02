@@ -25,6 +25,7 @@ function saludar() {
     alert('Hola mundo');
     console.log(event);
 }
+// Solo se quedará con la última función ejecitada
 $eventosemantico.onclick = saludar;
 $eventosemantico.onclick = function(e) {
     alert('Hola mundo semántico');
@@ -39,7 +40,13 @@ function saludar() {
     alert('Hola mundo');
     console.log(event);
 }
+function despedir() {
+    alert('Adios mundo');
+    console.log(event);
+}
+// Con esto toma varias funciones
 $eventomultiple.addEventListener("click", saludar)
+$eventomultiple.addEventListener("click", despedir)
 $eventomultiple.addEventListener("click", (e) => {
     alert('Hola mundo múltiple.');
     console.log(e);
@@ -60,15 +67,15 @@ $eventomultiple.addEventListener("click", holaMundo)
 $eventomultiple.addEventListener("click", (e) => {
     alert('Hola mundo múltiple.');
 })
-$eventomultiple.addEventListener("click", () => saludar('Chris'));
- */
+$eventomultiple.addEventListener("click", () => saludar('Chris')); */
 
-/* Deshabilitar botones
-const $eventoremover = document.getElementById("evento-remover");
+/* Deshabilitar botones, hacer doble clic */
+/* const $eventoremover = document.getElementById("evento-remover");
 // Función declarada 
 function remover2(e) {
     alert(`Removiendo el evento de tipo ${e.type}`);
     $eventoremover.removeEventListener("dblclick", remover2);
+    $eventoremover.disabled = true;
 }
 // Función expresada 
 const remover = (e) => {
@@ -134,6 +141,7 @@ $abrir.addEventListener("click", (e) => {
 });
 $cerrar.addEventListener("click", (e) => {
     windo.close();
+    // Cierra la pestaña abierta: windo = window.open("https://www.twitch.tv/duxativa");
 });
 $imprimir.addEventListener("click", (e) => {
     print();
