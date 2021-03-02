@@ -1,3 +1,17 @@
+Para agregar codigo desde el dom:
+
+Lo que tenía:
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W7VNWGZ');</script>
+
+Ya no poner la etiqueta scrit, se supone que la estoy creando.
+Esto va dinámico: ${domin.googleTagManager}
+Lo que se debe hacer:
+script.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);})(window,document,\'script\',\'dataLayer\',\'${domin.googleTagManager}\')`;
+
 <!-- https://uniwebsidad.com/libros/javascript/capitulo-6/modelo-basico-de-eventos-2 -->
 
 
