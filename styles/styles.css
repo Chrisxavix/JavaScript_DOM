@@ -1,0 +1,139 @@
+/* **************************** ITEM DESIGN **************************** */
+body {
+    background-image: radial-gradient(rgb(189, 180, 180), rgb(103, 104, 59));
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+}
+
+.main_section {
+    height: 90vh;
+}
+
+.base-template {
+    background-image: radial-gradient(rgb(189, 180, 180), rgb(59, 104, 104));
+}
+
+.itemTitle {
+    text-align:center;
+    color:rgb(204, 156, 25);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    letter-spacing: 5px;
+    text-shadow: -1px -1px 1px #01010c, 1px -1px 1px #01010c, -1px 1px 1px #01010c, 1px 1px 1px #01010c;
+}
+
+.itemSubTitle {
+    margin-top: 10px;
+    text-align:center;
+    font-size: 20px;
+    color: rgb(39, 36, 36);    
+}
+
+.itemInfo {
+    margin-top: 24px;
+    background-color: #09092c;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.itemInfo__title {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.itemInfo__subtitle {
+    margin-top: 5px;
+    color: rgb(150, 140, 140);
+    font-size: 15px;
+    margin: 5px 10px;
+}
+
+.itemInfo__example {
+    margin-top: 5px;
+    color: rgb(84, 143, 66);
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+.main-container {
+    border: 1px solid black;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.link {
+    display: block;
+    font-size: 25px;
+    color: rgb(97, 43, 12);
+    text-decoration: none;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-shadow: -0.2px -0.2px 0.2px #01010c, 0.2px -0.2px 0.2px #01010c, -0.2px 0.2px 0.2px #01010c, 0.2px 0.2px 0.2px #01010c;
+}
+
+.main-containerv2 {
+    border: 1px solid black;
+    width: 90%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+}
+
+.linkv2 {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(97, 43, 12);
+    text-decoration: none;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.middle-parrafo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.link:hover {
+    color: rgb(245, 239, 239);
+    text-shadow: -0.2px -0.2px 0.2px #efeff5, 0.2px -0.2px 0.2px #efeff5, -0.2px 0.2px 0.2px #efeff5, 0.2px 0.2px 0.2px #efeff5;
+}
+
+/* ------------ Image ------------ */
+.content-img {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.content-img img {
+    border-radius: 15px;
+    box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+/* ------------ Image ------------ */
+
+/* *********** FOOTER *********** */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #14192d;
+    line-height: 5vh;
+}
+
+.footer small {
+    font-size: 13px;
+}
+
+.footer small  a {
+    margin-left: 5px;
+    color: #d90062;
+    font-weight: bold;
+}
+/* *********** FOOTER *********** */
+/* **************************** ITEM DESIGN **************************** */
