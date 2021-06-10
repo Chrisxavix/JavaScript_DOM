@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributes</title>
+    <link rel="shortcut icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png" type="image/x-icon">
+    <!-- Hojas de estilos -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/normalize.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/styles.css">
+    <!-- Comment Code Style -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/Css/comment-code/prism.css">
+    <!-- Datos -->
+    <meta name="description" content="Agregar, eliminar o modificar atributos de las etiquetas de html.">
+    <link rel="apple-touch-icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png">
+    <meta name="theme-color" content="rgb(103, 104, 59)">
+    <!-- Para Twitter:name="twitter:title"  y Facebook:property="og:title" -->
+    <meta property="og:title" name="twitter:title" content="Attributes">
+    <meta property="og:image" name="twitter:image" 
+    content="https://chrisxavix.github.io/JavaScript/assets/meta-home-cover-js.jpg">
+    <!-- Url del sitio -->
+    <meta property="og:url" name="twitter:url" content="https://chrisxavix.github.io/lessons/02-Attributes/attributes.html">
+    <meta property="og:description" name="twitter:description" content="Agregar, eliminar o modificar atributos de las etiquetas de html.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://chrisxavix.github.io/lessons/02-Attributes/attributes.html">
+</head>
+<body>
+    <h1 class="itemTitle">Attributes</h1>
+    <h2 class="itemSubTitle">Modificar atributos de las etiquetas.</h2>
+
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+    <section class="base-template">
+        <h3>Template con etiquetas de prueba:</h3>   
+        <input id="name" type="text" name="name" placeholder="Nombre">
+    
+        <br><br>
+        <div>
+            <a class="link-dom" href="elements-selectors.html">
+                DOM
+            </a>
+        </div>
+    </section>
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+
+    <!-- ---------- Visualizar el valor de un atributo con el punto (.) ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">1) Visualizar el valor de un atributo con el punto (.)</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 1 ---------');
+document.documentElement.lang = 'en';
+console.log(document.documentElement.lang);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/1visualizar-dom.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/1visualizar.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Visualizar el valor de un atributo con el punto (.) ---------- -->
+
+    <!-- ---------- Visualizar el valor de un atributo con getAttribute ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">2) Visualizar el valor de un atributo con getAttribute</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 2 ---------');
+console.log(document.documentElement.getAttribute('lang'));
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/1visualizar-dom.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/1visualizar.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Visualizar el valor de un atributo con getAttribute ---------- -->
+
+    <!-- ---------- Cambiar valor con setAttribute ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">3) Cambiar valor con setAttribute</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 3 ---------');
+document.documentElement.setAttribute('lang', 'es-EC');
+console.log(document.documentElement.lang);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/3visualizar-dom.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/3visualizar.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Cambiar valor con setAttribute ---------- -->
+
+    <!-- ---------- Traer el valor declarado del atributo de una clase css ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">4) Traer el valor declarado del atributo de una clase css</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 4 ---------');
+console.log(document.querySelector(".link-dom").getAttribute("href"));
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/4-visualizar-dom.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/4visualizar.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Traer el valor declarado del atributo de una clase css ---------- -->
+
+    <!-- ---------- Agregar atributos a la clase que tiene el nombre .link-dom ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">5) Agregar atributos a la clase que tiene el nombre .link-dom</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+const $linkDom = document.querySelector('.link-dom');
+$linkDom.setAttribute("target", "blank");
+$linkDom.setAttribute("id", "test");
+$linkDom.setAttribute("href", "https://www.youtube.com");
+$linkDom.setAttribute("rel", "noopener");
+$linkDom.setAttribute('style', 'color: red;');
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/5-visualizar-dom.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Agregar atributos a la clase que tiene el nombre .link-dom ---------- -->
+
+    <!-- ---------- Agregar atributos con el punto ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">6) Agregar atributos con el punto</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 6 ---------');
+const $inputDom = document.getElementById('name')
+$inputDom.id = 'idChange';
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/6-visualizar-dom.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Agregar atributos con el punto ---------- -->
+
+    <!-- ---------- Comprobar que exista el atributo ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">7) Comprobar que exista el atributo</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 7 ---------');
+const $linkDomV2 = document.querySelector('.link-dom');
+console.log($linkDomV2.hasAttribute("rel"));
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/5-visualizar-dom.png" alt="">
+        </div>  
+
+        <div class="content-img">
+            <img src="assets/7-visualizar.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Comprobar que exista el atributo ---------- -->
+
+    <!-- ---------- Comprobar que exista el atributo ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">7) Comprobar que exista el atributo</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 7 ---------');
+const $linkDomV2 = document.querySelector('.link-dom');
+console.log($linkDomV2.hasAttribute("rel"));
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/5-visualizar-dom.png" alt="">
+        </div>  
+
+        <div class="content-img">
+            <img src="assets/7-visualizar.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Comprobar que exista el atributo ---------- -->
+
+    <!-- ---------- Quitar un atributo con removeAttribute y comprobar que no exista ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">8) Quitar un atributo con removeAttribute y comprobar que no exista</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 8 ---------');
+const $linkDomV3 = document.querySelector('.link-dom');
+$linkDomV3.removeAttribute("rel");
+console.log($linkDomV3.hasAttribute("rel"));
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/8-visualizar-dom.png" alt="">
+        </div>  
+
+        <div class="content-img">
+            <img src="assets/8-visualizar.png" alt="">
+        </div>  
+    </section>
+    <!-- ---------- Quitar un atributo con removeAttribute y comprobar que no exista ---------- -->
+
+    <script src="attributes.js"></script>
+    <!-- Comment Code Style -->
+    <script src="https://chrisxavix.github.io/Css/comment-code/prism.js"></script>
+</body>
+</html>
