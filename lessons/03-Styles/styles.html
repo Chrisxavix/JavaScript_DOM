@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Class</title>
+    <link rel="shortcut icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png" type="image/x-icon">
+    <!-- Hojas de estilos -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/normalize.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/styles.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/lessons/03-Styles/styles.css">
+    <!-- Comment Code Style -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/Css/comment-code/prism.css">
+    <!-- Datos -->
+    <meta name="description" content="Agregar, eliminar o modificar clases de CSS.">
+    <link rel="apple-touch-icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png">
+    <meta name="theme-color" content="rgb(103, 104, 59)">
+    <!-- Para Twitter:name="twitter:title"  y Facebook:property="og:title" -->
+    <meta property="og:title" name="twitter:title" content="CSS Class">
+    <meta property="og:image" name="twitter:image" 
+    content="https://chrisxavix.github.io/JavaScript/assets/meta-home-cover-js.jpg">
+    <!-- Url del sitio -->
+    <meta property="og:url" name="twitter:url" content="https://chrisxavix.github.io/lessons/03-Styles/styles.html">
+    <meta property="og:description" name="twitter:description" content="Agregar, eliminar o modificar clases de CSS.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://chrisxavix.github.io/lessons/03-Styles/styles.html">
+</head>
+<body>
+    <h1 class="itemTitle">CSS Class</h1>
+    <h2 class="itemSubTitle">Modificar clases de CSS.</h2>
+
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+    <section class="base-template">
+        <h3>Template con etiquetas de prueba:</h3>
+        <p id="que-es">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum quae quod voluptatibus nulla voluptatem aspernatur sapiente reprehenderit. Provident, alias necessitatibus? Quos molestiae saepe, minima aliquid aspernatur quidem? Repellat, tenetur.
+        </p>
+        
+        <p id="variables">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat adipisci veniam, pariatur vitae commodi error dolores eius architecto est eligendi consequatur a illum eaque esse unde rem aliquid eum ducimus.
+        </p>
+        
+        <input type="text" name="name" placeholder="name">
+
+        <div>
+            <a class="link-dom" href="index.html">DOMS</a>
+        </div>
+
+        <br>
+        <div>
+            <a class="link-test" href="index.html">TEST</a>
+        </div>
+
+        <section class="cards">
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/tech" alt="Tech">
+                <figcaption>Tech</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/animals" alt="Animals">
+                <figcaption>Animals</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/people" alt="People">
+                <figcaption>People</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/arch" alt="Arch">
+                <figcaption>Arch</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/nature" alt="Nature">
+                <figcaption>Nature</figcaption>
+            </figure>
+        </section>
+    </section>
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+
+    <!-- ---------- Lista de escritura camelCase para agregar estilos ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">1) Lista de escritura camelCase para agregar estilos</h3>
+            <h4 class="itemInfo__subtitle">
+                Los items de css a agregar serán en camel case.
+            </h4>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 1 ---------');
+const $domListStyle = document.querySelector('.link-dom');
+console.log($domListStyle.style);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/1-css-list.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Lista de escritura camelCase para agregar estilos ---------- -->
+
+    <!-- ---------- Con style.setProperty apuntando a la clase con querySelector ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">2) Con style.setProperty apuntando a la clase con querySelector</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 2 ---------');
+const $linkDom = document.querySelector('.link-dom');
+$linkDom.style.setProperty("font-size", "25px");
+$linkDom.style.setProperty("color", "brown");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/2-css-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/2-css-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Con style.setProperty apuntando a la clase con querySelector ---------- -->
+
+    <!-- ---------- Con style apuntando a la clase con querySelector ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">3) Con style apuntando a la clase con querySelector</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 3 ---------');
+const $linkTest = document.querySelector('.link-test');
+$linkTest.style.textDecoration = "none";
+$linkTest.style.color = "rgb(204, 216, 35)";
+$linkTest.style.fontWeight = "bold";
+$linkTest.style.fontSize = "30px";
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/3-css-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/3-css-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Con style apuntando a la clase con querySelector ---------- -->
+
+    <!-- ---------- setAttribute apuntando al id con querySelector ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">4) setAttribute apuntando al id con querySelector</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 4 ---------');
+const $paragraph = document.querySelector("#que-es")
+$paragraph.setAttribute("style", "background-color: blue;");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/4-css-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/4-css-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- setAttribute apuntando al id con querySelector ---------- -->
+
+    <!-- ---------- Acceder a las variables desde la hoja de estilos ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">5) Acceder a las variables desde la hoja de estilos</h3>
+            <h4 class="itemInfo__subtitle">Usando variables desde la hoja de estilos:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-css">
+:root {
+    --dark-color: rgb(17, 17, 17);
+    --yellow-color: rgb(204, 216, 35);
+}
+        </code></pre>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Usando en javascript:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+// Las variables están en la hoja de estilos declarado en el html, por lo que se declara una variable
+const $html = document.documentElement;
+const $variables = document.getElementById('variables');
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
+let varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color");
+// Asignamos las variables
+$variables.style.backgroundColor = varDarkColor;
+$variables.style.color = varYellowColor;
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/5-css-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/5-css-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Acceder a las variables desde la hoja de estilos ---------- -->
+
+    <!-- ---------- Modificar más clases css a una clase que ya contiene css ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">6) Modificar más clases css a una clase que ya contiene css</h3>
+            <h4 class="itemInfo__subtitle">Usando clases desde la hoja de estilos:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-css">
+/* Tarjetas */
+.cards {
+    border: thin solid var(--dark-color);
+    padding: 1rem;
+}
+
+.card {
+    display: inline-block;
+    background-color: var(--dark-color);
+    color: var(--yellow-color);
+}
+
+.card figcaption {
+    padding: 1rem;
+}
+
+.rotate-45 {
+    transform: rotate(45deg);
+}
+
+.rotate-135 {
+    transform: rotate(135deg);
+}
+
+.opacity-80 {
+    opacity: .8;
+}
+
+.sepia {
+    filter: sepia(1);
+} 
+        </code></pre>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Declarar la constante:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+const $card = document.querySelector(".card");
+        </code></pre>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Agregando una clase:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.1 ---------');
+$card.classList.add("rotate-45");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/1card-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/1card-despues.png" alt="">
+        </div>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Agregando dos clases más:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.2 ---------');
+$card.classList.add("opacity-80", "sepia");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/1card-despues.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/2card-despues.png" alt="">
+        </div>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Reemplaza una clase por otra:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.3 ---------');
+$card.classList.replace("rotate-45", "rotate-135");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/2card-despues.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/3card-despues.png" alt="">
+        </div>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Eliminar una clase o más:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.4 ---------');
+$card.classList.remove("opacity-80", "sepia");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/3card-despues.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/4card-despues.png" alt="">
+        </div>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Con el toggle verifica si tiene la clase, si la tiene la elimina y si no la tiene la agrega:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.5 ---------');
+$card.classList.toggle("opacity-80");
+$card.classList.toggle("sepia");
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/4card-despues.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/5card-despues.png" alt="">
+        </div>
+
+        <div class="itemInfo">
+            <h4 class="itemInfo__subtitle">Para agregar una clase a todos se hace con un forEach:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5.6 ---------');
+const $cardFor = document.querySelectorAll(".card");
+$cardFor.forEach(elem => {
+    elem.classList.add("rotate-45");
+});
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Original</strong></p>
+            <img src="assets/7-card-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Modificado</strong></p>
+            <img src="assets/7-card-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Modificar más clases css a una clase que ya contiene css ---------- -->
+    
+    <script src="styles.js"></script>
+    <!-- Comment Code Style -->
+    <script src="https://chrisxavix.github.io/Css/comment-code/prism.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+:root {
+    --dark-color: rgb(17, 17, 17);
+    --yellow-color: rgb(204, 216, 35);
+}
+
+/* Tarjetas */
+.cards {
+    border: thin solid var(--dark-color);
+    padding: 1rem;
+}
+
+.card {
+    display: inline-block;
+    background-color: var(--dark-color);
+    color: var(--yellow-color);
+}
+
+.card figcaption {
+    padding: 1rem;
+}
+
+.rotate-45 {
+    transform: rotate(45deg);
+}
+
+.rotate-135 {
+    transform: rotate(135deg);
+}
+
+.opacity-80 {
+    opacity: .8;
+}
+
+.sepia {
+    filter: sepia(1);
+}
