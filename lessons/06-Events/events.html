@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="shortcut icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png" type="image/x-icon">
+    <!-- Hojas de estilos -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/normalize.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/styles.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/lessons/03-Styles/styles.css">
+    <!-- Comment Code Style -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/Css/comment-code/prism.css">
+    <!-- Datos -->
+    <meta name="description" content="Eventos proporcionados por acciones del usuario.">
+    <link rel="apple-touch-icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png">
+    <meta name="theme-color" content="rgb(103, 104, 59)">
+    <!-- Para Twitter:name="twitter:title"  y Facebook:property="og:title" -->
+    <meta property="og:title" name="twitter:title" content="Events">
+    <meta property="og:image" name="twitter:image" 
+    content="https://chrisxavix.github.io/JavaScript/assets/meta-home-cover-js.jpg">
+    <!-- Url del sitio -->
+    <meta property="og:url" name="twitter:url" content="https://chrisxavix.github.io/lessons/06-Events/events.html">
+    <meta property="og:description" name="twitter:description" content="Eventos proporcionados por acciones del usuario.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://chrisxavix.github.io/lessons/06-Events/events.html">
+</head>
+<body>
+    <h1 class="itemTitle">Events</h1>
+    <h2 class="itemSubTitle">Eventos proporcionados por acciones del usuario.</h2>
+
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+    <section class="base-template">
+        <h3>Template con etiquetas de prueba:</h3>
+        <h4>Botones</h4>
+        <button onclick="saludarMundo()">1) Evento con atributo html</button>
+        <br><br>
+        <button id="evento-semantico">2) Evento con manejador semántico</button>
+        <button id="evento-semantico-v2">3) Evento con manejador semántico V2</button>
+        <br><br>
+        <button id="evento-multiple">4)Evento con manejador múltiple</button>
+        <button id="evento-multiple-v2">5) Evento con manejador múltiple V2</button>
+        <br><br>
+        <button id="evento-remover">6) Evento remover al hacer doble click</button>
+        <br><br>
+    </section>
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+
+    <!-- ---------- Como atributo del html ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">1) Como atributo del html</h3>
+            <h4 class="itemInfo__subtitle">
+                <pre style="font-size: 12px;"><code class="language-html">
+&lt;button onclick="saludar()">Evento con atributo html&lt;/button>
+                </code></pre>
+            </h4>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 1 ---------');
+function saludarMundo() {
+    console.log('Hi World');
+    console.log(event);
+}
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/1event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Como atributo del html ---------- -->
+
+    <!-- ---------- Por id de la etiqueta, OPCIÓN 1 ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">2) Por id de la etiqueta, OPCIÓN 1</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 2 ---------');
+const $eventoSemantico = document.getElementById("evento-semantico");
+// Declaración de la función a ejecutarse al ser llamada
+function saludarSemantico() {
+    console.log('Hi Semántico');
+    console.log(event);
+}
+// Llamar la función sin los paréntesis.
+$eventoSemantico.onclick = saludarSemantico;
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/2event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Por id de la etiqueta, OPCIÓN 1 ---------- -->
+
+    <!-- ---------- Por id de la etiqueta, OPCIÓN 2 ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">3) Por id de la etiqueta, OPCIÓN 2</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 3 ---------');
+const $eventoSemanticoV2 = document.getElementById("evento-semantico-v2");
+/* Asignando el evento click */
+$eventoSemanticoV2.onclick = function(e) {
+    console.log('Hi Semántico Two');
+    console.log(e);
+}
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/3event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Por id de la etiqueta, OPCIÓN 2 ---------- -->
+
+    <!-- ---------- Ejecutar funciones múltiples ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">4) Ejecutar funciones múltiples</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 4 ---------');
+const $eventoMultiple = document.getElementById("evento-multiple");
+function saludar() {
+    console.log('Hi Multiple');
+    console.log(event);
+}
+function despedir() {
+    console.log('Bye Multiple');
+    console.log(event);
+}
+// Toma varias funciones, usar sin el paréntesis
+$eventoMultiple.addEventListener("click", saludar)
+$eventoMultiple.addEventListener("click", despedir)
+$eventoMultiple.addEventListener("click", (e) => {
+    console.log('Multiple');
+    console.log(e);
+    console.log(e.type);
+    console.log(e.target);
+});
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/4event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Ejecutar funciones múltiples ---------- -->
+
+    <!-- ---------- Función con parámetros ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">5) Función con parámetros</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+const $eventoMultipleParam = document.getElementById("evento-multiple-v2");
+function saludarMultiple(name="desconocido") {
+    console.log(`Hola ${name}`);
+}
+function holaMundoMultiple() {
+    console.log(`Hola mundo`);
+}
+$eventoMultipleParam.addEventListener("click", holaMundoMultiple)
+$eventoMultipleParam.addEventListener("click", () => saludarMultiple('Chris'));            
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/5event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Función con parámetros ---------- -->
+
+    <!-- ---------- Deshabilitar botón al hacer doble click ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">6) Función con parámetros</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 6 ---------');
+const $eventoRemover = document.getElementById("evento-remover");
+function remover(e) {
+    console.log(`Deshabilitar botón con el evento de tipo ${e.type}`);
+    $eventoRemover.removeEventListener("dblclick", remover);
+    $eventoRemover.disabled = true;
+}
+$eventoRemover.addEventListener("dblclick", remover);                        
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/6event.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Función con parámetros ---------- -->
+    
+    <script src="events.js"></script>
+    <!-- Comment Code Style -->
+    <script src="https://chrisxavix.github.io/Css/comment-code/prism.js"></script>
+</body>
+</html>
