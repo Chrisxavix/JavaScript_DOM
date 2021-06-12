@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Items and Fragments</title>
+    <link rel="shortcut icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png" type="image/x-icon">
+    <!-- Hojas de estilos -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/normalize.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/styles/styles.css">
+    <link rel="stylesheet" href="https://chrisxavix.github.io/JavaScript_DOM/lessons/03-Styles/styles.css">
+    <!-- Comment Code Style -->
+    <link rel="stylesheet" href="https://chrisxavix.github.io/Css/comment-code/prism.css">
+    <!-- Datos -->
+    <meta name="description" content="Agregar etiquetas en el template.">
+    <link rel="apple-touch-icon" href="https://chrisxavix.github.io/JavaScript/assets/js-v1.png">
+    <meta name="theme-color" content="rgb(103, 104, 59)">
+    <!-- Para Twitter:name="twitter:title"  y Facebook:property="og:title" -->
+    <meta property="og:title" name="twitter:title" content="Agregar Items and Fragments al template.">
+    <meta property="og:image" name="twitter:image" 
+    content="https://chrisxavix.github.io/JavaScript/assets/meta-home-cover-js.jpg">
+    <!-- Url del sitio -->
+    <meta property="og:url" name="twitter:url" content="https://chrisxavix.github.io/lessons/05-Add-items/add-items.html">
+    <meta property="og:description" name="twitter:description" content="Agregar Items and Fragments al template.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://chrisxavix.github.io/lessons/05-Add-items/add-items.html">
+</head>
+<body>
+    <h1 class="itemTitle">Add Items and Fragments</h1>
+    <h2 class="itemSubTitle">Agregar Items and Fragments al template.</h2>
+
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+    <section class="base-template">
+        <h3>Template con etiquetas de prueba:</h3>
+
+        <section class="cards">
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/tech" alt="Tech">
+                <figcaption>Tech</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/animals" alt="Animals">
+                <figcaption>Animals</figcaption>
+            </figure>
+    
+            <figure class="card">
+                <img src="https://placeimg.com/100/100/people" alt="People">
+                <figcaption>People</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <p>Estaciones</p>
+            <section id="lista-estaciones"></section>
+        </section>
+        
+        <section>
+            <p>Meses</p>
+            <section id="lista-meses"></section>
+        </section>
+    </section>
+    <!-- --------------------------- BASE TEMPLATE --------------------------- -->
+
+    <!-- ---------- Crear un tarjeta nueva. OPCION 1 ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">1) Crear un tarjeta nueva. OPCION 1</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 1 ---------');
+// Buscamos en dónde queremos agregar, en este caso en cards, por lo que seleccionamos la clase css .cards con querySelector
+const $cards = document.querySelector(".cards");
+// Creamos las etiquetas con createElement
+const $figure = document.createElement("figure");
+const $img = document.createElement("img");
+const $figcaption = document.createElement("figcaption");
+// Creamos un texto con createTextNode
+const $figcaptionText = document.createTextNode("Animals");
+// Agregamos los atributos dentro de la etiqueta creada imagen
+$img.setAttribute("src","https://placeimg.com/100/100/animals");
+$img.setAttribute("alt", "Animals");
+// Agregamos la clase css card
+$figure.classList.add("card");
+// Dentro del figcaption agregamos el texto
+$figcaption.appendChild($figcaptionText);
+// Dentro de la figura agreagamos la imagen y el figcaption que contiene el texto
+$figure.appendChild($img);
+$figure.appendChild($figcaption);
+// Dentro de la sección de cards agregamos la nueva card
+$cards.appendChild($figure);
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Tres items, original</strong></p>
+            <img src="assets/1item-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Cuatro items con el agregado</strong></p>
+            <img src="assets/1item-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Crear un tarjeta nueva. OPCION 1 ---------- -->
+
+    <!-- ---------- Crear un tarjeta nueva. OPCION 2 ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">2) Crear un tarjeta nueva. OPCION 2</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 2 ---------');
+// Buscamos en dónde queremos agregar, en este caso en cards, por lo que seleccionamos la clase css .cards con querySelector
+const $cardsOp2 = document.querySelector(".cards");
+// Creamos las etiquetas con createElement
+const $figureOp2 = document.createElement("figure");
+// Agregamos sentencias html que será leído con innerHTML
+$figureOp2.innerHTML = `&lt;img src='https://placeimg.com/100/100/tech' alt='Tech'> &lt;figcaption>Tech&lt;/figcaption>`;
+// Agregamos la clase css 
+$figureOp2.classList.add("card");
+$cards.appendChild($figureOp2);
+        </code></pre>
+
+        <div class="content-img">
+            <p><strong>Cuatro items, original</strong></p>
+            <img src="assets/2item-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <p><strong>Cinco items con el agregado</strong></p>
+            <img src="assets/2item-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Crear un tarjeta nueva. OPCION 2 ---------- -->
+
+    <!-- ---------- Agregando un script en el head ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">3) Agregando un script en el head</h3>
+            <h4 class="itemInfo__subtitle">
+                Se agrega el script al final del head.
+            </h4>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 3 ---------');
+// Buscamos en dónde queremos agregar el script en el head
+const $head = document.head;
+// Creamos el script
+const $scriptAdd = document.createElement("script");
+// Agregamos atributos
+$scriptAdd.id = 'idScript';
+$scriptAdd.src = 'test.js';
+$scriptAdd.innerText= 'test';
+// Agregamos el script
+$head.appendChild($scriptAdd);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/3item.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Agregando un script en el head ---------- -->
+
+    <!-- ---------- Agregando un script en un orden específico en el head ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">4) Agregando un script en un orden específico en el head</h3>
+            <h4 class="itemInfo__subtitle">
+                Se agrega el script en un orden específico.
+                <br>
+                En la posición 2.
+            </h4>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 4 ---------');
+// Buscamos en dónde queremos agregar el script
+const $headV2 = document.head;
+// Quiero que el script esté en la posición 2
+// Nos colocamos en la posición 1 de los hijos de head
+const $beforeAdd = $head.children[1];
+// Creamos el script
+const $scriptAddV2 = document.createElement("script");
+// Agregamos atributos
+$scriptAddV2.id = 'idScript';
+$scriptAddV2.src = 'test.js';
+$scriptAddV2.innerText= 'test';
+// Agregamos el script de acuerdo a la posición que queremos que tome
+$head.insertBefore($scriptAddV2, $beforeAdd);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/4item.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Agregando un script en un orden específico en el head ---------- -->
+
+    <!-- ---------- Crendo una lista en el DOM de acuerdo a un array ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">5) Crendo una lista en el DOM de acuerdo a un array</h3>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+const estaciones = ["Primavera", "Otoño", "Invierno", "Verano"];
+// Selecionamos en donde agregar a partir del id en el template
+const $sectionEstaciones = document.getElementById('lista-estaciones');
+// Creamos la etiqueta
+const $ul = document.createElement("ul");
+// Agregamos la etiqueta dentro del id encontrado
+$sectionEstaciones.appendChild($ul);
+// Recorremos el array
+estaciones.forEach(elemnt => {
+    // Cada elemnt es un item del array -> Primavera", "Otoño", "Invierno", "Verano
+    // Por cada item creamos una etiqueta li
+    const $li = document.createElement('li');
+    // A cada li le asignamos el valor del array con textContent -> Primavera", "Otoño", "Invierno", "Verano
+    $li.textContent = elemnt;
+    // Dentro de la etiqueta ul vamos agregando un li 
+    $ul.appendChild($li);
+});
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/5item-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/5item-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Crendo una lista en el DOM de acuerdo a un array ---------- -->
+
+    <!-- ---------- Fragmento ---------- -->
+    <section id="ancla1">
+        <div class="itemInfo">
+            <h3 class="itemInfo__title">6) Fragmento</h3>
+            <h4 class="itemInfo__subtitle">
+                Al crear etiquetas en el DOM se hace de acuerdo al código de insercción, es decir, uno a uno, cuando son pocos items no hay problema. Pero cuando son demasidos items al hacer insercciones uno a uno la aplicación va a ser lenta, por lo que se hace uso de fragmentos, ya que en una insercción agrega todos los items
+            </h4>
+            <h4 class="itemInfo__subtitle">Usando:</h4>
+        </div>
+
+        <pre style="font-size: 12px;"><code class="language-javascript">
+console.log('--------- 5 ---------');
+const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+// Selecionamos en donde agregar a partir del id en el template
+const $sectionMeses = document.getElementById('lista-meses');
+// Creamos la etiqueta
+const $ulFr = document.createElement("ul");
+// Creamos el fragmento
+const $fragment = document.createDocumentFragment();
+// Agregamos la etiqueta dentro del id encontrado
+$sectionMeses.appendChild($ulFr);
+// Recorremos el array
+meses.forEach(elemnt => {
+    // Por cada item creamos una etiqueta li
+    const $liFr = document.createElement("li");
+    // A cada li le asignamos el valor del array con textContent -> "Enero", "Febrero", "Marzo",...
+    $liFr.textContent = elemnt;
+    // Agregamos todos los items al fragmento
+    $fragment.appendChild($liFr);
+});
+// En una sola insercción agregamos todos los items
+$ulFr.appendChild($fragment);
+        </code></pre>
+
+        <div class="content-img">
+            <img src="assets/6item-antes.png" alt="">
+        </div>
+
+        <div class="content-img">
+            <img src="assets/6item-despues.png" alt="">
+        </div>
+    </section>
+    <!-- ---------- Fragmento ---------- -->
+
+    <script src="add-items.js"></script>
+    <!-- Comment Code Style -->
+    <script src="https://chrisxavix.github.io/Css/comment-code/prism.js"></script>
+</body>
+</html>
